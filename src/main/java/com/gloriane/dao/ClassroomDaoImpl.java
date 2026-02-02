@@ -15,6 +15,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
         this.dbConnection = dbConnection;
     }
 
+    @Override
     public Classroom save(Classroom classroom) throws SQLException {
         Connection conn = null;
 
@@ -68,7 +69,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
 
         return classroom;
     }
-
+    @Override
     public Classroom update(Classroom classroom) throws SQLException {
         Connection conn = null;
 
@@ -117,7 +118,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
         }
         return classroom;
     }
-
+    @Override
     public boolean delete(int classroomId) throws SQLException {
         String sql = "DELETE FROM classrooms WHERE id = ?";
 
@@ -136,7 +137,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
         }
         return false;
     }
-
+    @Override
     public Optional<Classroom> findById(int id) throws SQLException {
         String sql = "SELECT * FROM classrooms WHERE id = ?";
 
@@ -157,7 +158,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
 
         return Optional.empty();
     }
-
+    @Override
     public List<Classroom> findAll() throws SQLException {
         String sql = "SELECT * FROM classrooms ORDER BY name";
         List<Classroom> classrooms = new ArrayList<>();
@@ -176,7 +177,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
 
         return classrooms;
     }
-
+    @Override
     public List<Classroom> searchAvailable(int minCapacity, Set<String> requiredEquipment,
                                            boolean needsAccessibility) throws SQLException {
         List<Classroom> allClassrooms = findAll();
@@ -186,7 +187,7 @@ public class ClassroomDaoImpl implements ClassroomDao {
                 .sorted(Comparator.comparingInt(Classroom::getCapacity))
                 .collect(Collectors.toList());
     }
-
+    @Override
     public List<Classroom> findAccessible() throws SQLException {
         return findAll().stream()
                 .filter(Classroom::isAccessible)

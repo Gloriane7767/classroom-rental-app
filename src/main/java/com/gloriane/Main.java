@@ -9,8 +9,8 @@ public class Main {
         System.out.println("Hello and welcome!");
 
         DatabaseConnection dbConnection = new DatabaseConnection();
-        CustomerDaoImpl customerDao = new CustomerDaoImpl();
-        ClassroomDaoImpl classroomDao = new ClassroomDaoImpl();
+        CustomerDaoImpl customerDao();
+        ClassroomDaoImpl classroomDao();
 
     }
 }

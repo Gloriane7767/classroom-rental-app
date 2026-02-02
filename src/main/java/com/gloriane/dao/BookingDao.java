@@ -1,23 +1,22 @@
 package com.gloriane.dao;
 
 import com.gloriane.model.Booking;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface BookingDao {
-    Booking save (Booking booking);
+    Booking save(Booking booking);
     List<Booking> findAll();
-    List<Booking> findById();
+    Optional<Booking> findById(long id);
     List<Booking> findUpcoming();
-    List<Booking> findByClassroom();
-    List<Booking> findUpcomingByClassroom();
-    List<Booking> findByCustomer();
-    List<Booking> findByDate();
-    boolean isClassroomAvailable();
-    List<Booking> findConflictingBookings();
-    Booking update (Booking booking);
-    Booking delete (Booking booking);
-
-
+    List<Booking> findByClassroom(int classroomId);
+    List<Booking> findUpcomingByClassroom(int classroomId);
+    List<Booking> findByCustomer(int customerId);
+    List<Booking> findByDate(LocalDate date);
+    boolean isClassroomAvailable(int classroomId, LocalDate date, LocalTime startTime, LocalTime endTime);
+    List<Booking> findConflictingBookings(int classroomId, LocalDate date, LocalTime startTime, LocalTime endTime);
+    Booking update(Booking booking);
+    boolean delete(Booking booking);
 }

@@ -89,12 +89,5 @@ public class Databaseinitializer {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Main method for testing database initialization
-     */
-    public static void main(String[] args) {
-        initialize();
-    }
 }
 

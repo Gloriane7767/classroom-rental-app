@@ -72,23 +72,26 @@ public class Classroom {
         isAccessible = accessible;
     }
 
+    // ===== HELPER METHODS =====
+    // These methods provide business logic functionality for classroom operations
+
     // Adds a piece of equipment to this classroom. For example: addEquipment("Projector")
     public void addEquipment(String equipmentItem) {
         this.equipment.add(equipmentItem);
     }
 
-    // Removes a piece of equipment from this classroom
+    // Helper method: Removes a piece of equipment from this classroom
     public void removeEquipment(String equipmentItem) {
         this.equipment.remove(equipmentItem);
     }
 
-    // Checks if this classroom has a specific piece of equipment
+    // Helper method: Checks if this classroom has a specific piece of equipment
     public boolean hasEquipment(String equipmentItem) {
         return this.equipment.contains(equipmentItem);
     }
 
     /**
-     * Checks if this classroom has ALL the required equipment
+     * Helper method: Checks if this classroom has ALL the required equipment
      * Example: If someone needs ["Projector", "Whiteboard"], this method checks if our room has BOTH of those items.
      * Set of equipment that is needed
      * room has all required equipment, false otherwise
@@ -98,14 +101,6 @@ public class Classroom {
         return this.equipment.containsAll(requiredEquipment);
     }
 
-    /**
-     * Checks if this classroom meets specific requirements
-     * This is useful when searching for available rooms
-     * Minimum number of seats needed
-     * Equipment that must be present
-     * Whether accessibility is required
-     * true if room meets all requirements
-     */
 
     // Check capacity: our capacity must be >= what they need
     public boolean meetsRequirements(int minCapacity, Set<String> requiredEquipment, boolean needsAccessibility) {

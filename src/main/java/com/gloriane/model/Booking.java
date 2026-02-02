@@ -126,6 +126,8 @@ public class Booking {
     }
 
 
+    // ===== HELPER METHODS =====
+    // These methods provide business logic functionality for booking operations
     public boolean overlapsWith(LocalDate date, LocalTime start, LocalTime end) {
         // First check: Must be the same date
         if (!this.bookingDate.equals(date)) {
@@ -136,7 +138,7 @@ public class Booking {
         return this.startTime.isBefore(end) && this.endTime.isAfter(start);
     }
 
-         //Checks if this booking is for a future date/time. This is useful for showing "upcoming bookings"
+         // Helper method: Checks if this booking is for a future date/time. This is useful for showing "upcoming bookings"
          // true if booking is in the future
     public boolean isUpcoming() {
         LocalDate today = LocalDate.now();
@@ -147,7 +149,7 @@ public class Booking {
                 || (this.bookingDate.equals(today) && this.startTime.isAfter(now));
     }
 
-    // Validates that this booking makes sense.Returns null if valid, or an error message if something is wrong null
+    // Helper method: Validates that this booking makes sense.Returns null if valid, or an error message if something is wrong null
     // if valid, error message if invalid
     public String validate() {
         // Check 1: Start time must be before end time

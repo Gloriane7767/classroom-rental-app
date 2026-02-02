@@ -80,6 +80,7 @@ public class DatabaseConnection {
         System.out.println("Connection test result: " + ok);
     }
 
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
+        return getMySQLConnection();
     }
 }

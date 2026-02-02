@@ -20,13 +20,15 @@ public class Classroom {
     }
 
     // Constructor for loading an EXISTING classroom from database
-    public Classroom(int id, String name, int capacity, Set<String> equipment, boolean isAccessible) {
+    public Classroom() {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
         this.equipment = new HashSet<>(equipment);
         this.isAccessible = isAccessible;
     }
+
+
 
     // ===== GETTERS AND SETTERS =====
     public int getId() {
@@ -69,7 +71,6 @@ public class Classroom {
     public void setAccessible(boolean accessible) {
         isAccessible = accessible;
     }
-
 
     // Adds a piece of equipment to this classroom. For example: addEquipment("Projector")
     public void addEquipment(String equipmentItem) {

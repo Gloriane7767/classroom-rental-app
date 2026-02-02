@@ -17,8 +17,9 @@ public class DatabaseConnection {
     // Singleton instance
     private static DatabaseConnection instance;
 
-    private DatabaseConnection() {
-        // private constructor for Singleton
+    // private constructor for Singleton
+    public DatabaseConnection() {
+
     }
 
     // Return a (cached) JDBC Connection to the database.
@@ -77,5 +78,8 @@ public class DatabaseConnection {
         DatabaseConnection db = DatabaseConnection.getInstance();
         boolean ok = db.testConnection();
         System.out.println("Connection test result: " + ok);
+    }
+
+    public Connection getConnection() {
     }
 }
